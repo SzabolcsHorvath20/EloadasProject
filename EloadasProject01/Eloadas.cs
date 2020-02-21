@@ -12,6 +12,10 @@ namespace EloadasProject01
 
         public Eloadas(int sorokSzama, int helyekSzama)
         {
+            if (sorokSzama < 1 || helyekSzama < 1)
+            {
+                throw new ArgumentException("Hibás paraméter, a sorok és a helyek száma legalább 1 kell, hogy legyen.");
+            }
             foglalasok = new bool[sorokSzama, helyekSzama];
         }
 
