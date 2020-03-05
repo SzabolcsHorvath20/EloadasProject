@@ -76,11 +76,15 @@ namespace EloadasProject01
 
         public bool Foglalt(int sor, int szek)
         {
-            if (foglalasok[sor, szek] == true)
+            if (sor < 1 || szek < 1 || sor > foglalasok.GetLength(0) || szek > foglalasok.GetLength(1))
             {
-                return false;
+                throw new ArgumentException("Hibás paraméter, a sorok és a helyek száma legalább 1 kell, hogy legyen.");
             }
-            return true;
+            if (foglalasok[sor-1, szek-1] == true)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
